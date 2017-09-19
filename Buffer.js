@@ -41,3 +41,10 @@ console.log(buf4);
 var buf5 = Buffer.from([1,2,3]);   //// 创建一个包含 [0x1, 0x2, 0x3] 的 Buffer。
 var buf6 = Buffer.from("test");    //创建一个包含utf-8字节<Buffer 74 65 73 74>的Buffer
 console.log(buf6);
+
+
+//buffer.keys()
+const buf7 = Buffer.from('buffer');
+for(const key of buf.values()) {
+  console.log(key);
+}
