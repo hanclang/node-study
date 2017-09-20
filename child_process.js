@@ -23,3 +23,20 @@ bat.stderr.on('data', (data) => {
 bat.on('exit', (code) => {
   console.log(`子进程退出码：${code}`);
 });
+
+// const { execFile } = require('child_process');
+// const child = execFile('node', ['--version'], (error, stdout, stderr) => {
+//   if(error) {
+//     throw error;
+//   }
+//   //console.log(stdout);
+// })
+
+//promisify()异步
+const util = require('util');
+const exeFile = util.promisify(require('child_process').execFile);
+async function getVersion() {
+  const { stdout } = await exeFile('node', ['--version']);
+  console.log(stdout);
+}
+getVersion();
